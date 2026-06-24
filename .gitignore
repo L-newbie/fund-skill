@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs & Temp
+*.log
+*.tmp
+*.bak
+*.cache
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Misc
+.env
+.env.*
+*.pid
+*.seed
