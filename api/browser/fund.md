@@ -45,10 +45,16 @@ GET https://fund.eastmoney.com/pingzhongdata/{code}.js?rt={timestamp}
 ## 3. Historical NAV (F10 lsjz) 历史净值
 
 ```
-GET https://fundf10.eastmoney.com/F10DataApi.aspx?type=lsjz&code={code}&page={page:1}&per={perPage:10}&sdate={sdate:}&edate={edate:}
+GET https://fundf10.eastmoney.com/F10DataApi.aspx?type=lsjz&code={code}&page={page}&per={perPage}&sdate={sdate}&edate={edate}
 ```
 
 - **Transport**: `<script>` tag — sets `window.apidata`, hybrid format (`var apidata = {...}` or `apidata({...})`)
+- **Parameters**:
+  - `code` — 基金代码（默认: `110011`）
+  - `page` — 页码（默认: `1`）
+  - `PerPage` — 每页条数（默认: `10`）
+  - `sdate` — 开始日期（默认: 空）
+  - `edate` — 结束日期（默认: 空）
 - **Response**: `{ content: "<table>...</table>", page, records, pages }`
 - **Parse**: Extract `<tr>` rows → date / NAV / growth % from HTML table cells
 - **Pagination**: Default `per=500`, loop until `batch.length < per`
@@ -78,15 +84,15 @@ GET https://fund.eastmoney.com/js/fundcode_search.js
 ## 6. Fund Holdings 基金持仓
 
 ```
-GET https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code={code}&topline={topline:10}&year={year:}&month={month:}&_={timestamp}
+GET https://fundf10.eastmoney.com/FundArchivesDatas.aspx?type=jjcc&code={code}&topline={topline}&year={year}&month={month}&_={timestamp}
 ```
 
 - **Transport**: `<script>` tag — sets `window.apidata` (hybrid format)
 - **Parameters**:
-  - `topline=10` → top 10 holdings (quarter report)
-  - `topline=200` → all holdings (annual/semi-annual report)
-  - `year=` empty → auto latest quarter
-  - `month=` quarter number: 1=Q1, 2=H1, 3=Q3, 4=annual
+  - `code` — 基金代码（默认: `110011`）
+  - `topline` — 条数，`10`=前10持仓（季报），`200`=全部（年报/中报）（默认: `10`）
+  - `year` — 年份，空=最新季度（默认: 空）
+  - `month` — 季度编号：1=Q1, 2=H1, 3=Q3, 4=年报（默认: 空）
 - **Response**: `{ content: "<table>...</table>" }` — parse `<thead>` columns + `<tbody>` rows
 - **Parse**: Dynamic column mapping (detect "股票代码"/"证券代码"/"基金代码" in `<th>`), extract code/name/ratio/emMarketCode from links
 - **Market resolve**: After parsing, call `market-resolve` board to supplement `emMarketCode` for each holding

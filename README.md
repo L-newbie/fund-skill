@@ -4,16 +4,63 @@
 
 **基金 · 股票 · 资讯 — 一站式数据接口 Skill**
 
-聚合东方财富 / 天天基金 / 腾讯 / 新浪 / 海外 RSS 等多数据源
-
-<a href="https://L-newbie.github.io/real-time-valuation/">
-  <img src="https://img.shields.io/badge/🚀_在线体验-基金管理-4da6ff?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1d27" />
-</a>
-<a href="https://l-newbie.github.io/fund-skill/validator/">
-  <img src="https://img.shields.io/badge/🔍_接口验证-API_Validator-a78bfa?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1d27" />
-</a>
+[![](https://img.shields.io/badge/EastMoney-EA4335?style=flat-square&logo=eastmoney)](https://www.eastmoney.com)
+[![](https://img.shields.io/badge/TTFund-FF6600?style=flat-square&logo=eastmoney)](https://fund.eastmoney.com)
+[![](https://img.shields.io/badge/Tencent-07C160?style=flat-square&logo=tencentqq)](https://www.tencent.com)
+[![](https://img.shields.io/badge/Sina-E6162D?style=flat-square&logo=sinaweibo)](https://www.sina.com.cn)
+[![](https://img.shields.io/badge/RSS-6366F1?style=flat-square&logo=rss)](https://www.yahoo.com/news/rssindex)
 
 </div>
+
+---
+
+## 📁 项目结构
+
+<!-- AUTO-PROJECT-TREE START -->
+```
+fund-skill/
+├── 📄 SKILL.md                ← Skill 主入口（含 Project Maintenance 规则）
+├── 📂 api/                    ← 接口定义（按语言分目录）
+│   ├── 📂 browser/              ← 🌐 browser 接口
+│   │   ├── 📊 fund.md
+│   │   ├── 🌍 global-index.md
+│   │   ├── 🔍 market-resolve.md
+│   │   ├── 📰 news.md
+│   │   └── 📈 stock.md
+│   └── 📂 python/              ← 🐍 python 接口
+│       ├── 🐍 profiles.md     SDK 元信息
+│       ├── 📊 fund.md
+│       └── 📈 stock.md
+├── 📂 references/             ← 深度参考文档
+│   ├── 🔗 api-urls.md         接口指针索引（→ 链接到源文件）
+│   ├── 🔄 data-sources.md     数据源策略与兜底方案
+│   └── ⚠️ errors.md           常见错误与修复
+├── 📂 pending/                ← 验证待确认接口暂存
+├── 📂 scripts/                ← 工具脚本
+│   └── 🐚 sync.sh             极简扫描版（零依赖）
+├── 📂 .git/                   ← Git 仓库数据
+├── 📄 .gitignore              ← Git 忽略规则
+└── 📄 README.md
+```
+<!-- AUTO-PROJECT-TREE END -->
+
+---
+
+## 📊 板块说明
+
+接口按语言分目录：`browser/` (前端 HTTP) → `python/` (Python SDK) → 未来扩展
+
+<!-- AUTO-BOARD-TABLE START -->
+| 板块 | 文件 | 接口 | 核心能力 |
+|:----:|:----:|:----:|:--------|
+| 🌐 基金 | `api/browser/fund.md` | **7** | 实时估值 · 基金详情 · 历史净值 · 基金搜索 · 全量目录 · 基金持仓 · 盘中估值走势 |
+| 🌐 全球指数 | `api/browser/global-index.md` | **1** | A-Share Indices |
+| 🌐 市场解析 | `api/browser/market-resolve.md` | **1** | 腾讯智能搜索 |
+| 🌐 财经资讯 | `api/browser/news.md` | **3** | 新浪财经 · 东方财富快讯 · Overseas RSS — Yahoo Finance |
+| 🌐 股票 | `api/browser/stock.md` | **4** | 批量行情 · 股票搜索 · 昨日涨跌 · 腾讯行情 |
+| 🐍 基金 | `api/python/fund.md` | **6** | 实时ETF估值 · 历史净值 · 基金基本信息 · 基金排行 · 基金持仓 · 基金经理 |
+| 🐍 股票 | `api/python/stock.md` | **5** | A股实时行情 · 历史K线 · 股票基本信息 · 股票搜索 · 指数行情 |
+<!-- AUTO-BOARD-TABLE END -->
 
 ---
 
@@ -57,58 +104,34 @@ git clone https://github.com/L-newbie/fund-skill.git "$env:USERPROFILE\.claude\s
 | 📰 | 今天有什么**财经新闻**？ |
 | 🌍 | 全球主要指数现在是什么情况？ |
 
----
+### 💬 启动预览
 
-## 📊 板块说明
+> 启动 `/fund-skill` 后，你会看到以下欢迎界面：
 
-<!-- AUTO-BOARD-TABLE START -->
-| 板块 | 文件 | 接口 | 核心能力 |
-|:----:|:----:|:----:|:--------|
-| 📊 基金 | `api/fund.md` | **7** | 实时估值 · 基金详情 · 历史净值 · 基金搜索 · 全量目录 · 基金持仓 · 盘中估值走势 |
-| 🌍 全球指数 | `api/global-index.md` | **1** | A-Share Indices |
-| 🔍 市场解析 | `api/market-resolve.md` | **1** | 腾讯智能搜索 |
-| 📰 财经资讯 | `api/news.md` | **3** | 新浪财经 · 东方财富快讯 · Overseas RSS — Yahoo Finance |
-| 📈 股票 | `api/stock.md` | **4** | 批量行情 · 股票搜索 · 昨日涨跌 · 腾讯行情 |
-<!-- AUTO-BOARD-TABLE END -->
+```
+Fund Skill 已加载 ✅
 
----
+我可以帮你完成以下操作：
 
-## 🔧 接口调用约定
+查询类
+- 📊 基金 — 实时估值、历史净值、基金详情、持仓、搜索
+- 📈 股票 — 批量行情、股票搜索、昨日涨跌、K线数据
+- 🌍 全球指数 — A股、港股、美股、日韩、欧洲等指数
+- 📰 财经资讯 — 新浪财经、东方财富快讯、海外 RSS
 
-| 数据源 | 调用方式 | 说明 |
-|:------:|:--------:|:----:|
-| 东方财富 / 天天基金 | `JSONP` | `cb=` 自定义回调名，或固定 `jsonpgz` |
-| pingzhongdata / fundcode_search | `<script>` 标签 | 注入后读取 window 全局变量 |
-| 腾讯行情 | `fetch` | 需 `TextDecoder('gbk')` 解码 |
-| 海外 RSS | `fetch` | 通过 rss2json.com 代理 |
+项目维护类
+- 📝 提交新接口 — 提供原始 API 信息，我按 5 步流程整理、验证、写入
+- 🔄 同步下游文件 — 修改 api/ 后自动更新 api-urls.md、SKILL.md、README.md
+- ✅ 验证接口 — 检测所有已录入 API 是否可用
 
-> 💡 所有接口均 **无需 API Key**（海外 RSS 代理在免费额度内也无需 Key）
+你想做什么？
+```
 
 ---
 
 ## 🤝 参与贡献
 
 欢迎提交 PR 扩展接口和板块，让数据源更丰富！
-
-### 📌 提供接口信息
-
-有两种方式，都很简单：
-
-**方式一：对话中描述**
-
-在 Claude Code 对话中直接描述接口，例如：
-
-> "我找到一个基金排名接口：请求 https://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=all&sc=6yzf&st=desc&pi=1&pn=50，用 script 标签加载，返回 var rankData={datas:[...]}，每条数据逗号分隔，包含代码、名称、日期、净值、日增长率等"
-
-**方式二：提供原始文件**
-
-把收集到的接口信息放到项目根目录（如 `my-apis.md`），格式随意：
-
-```
-基金排行
-请求地址: https://fund.eastmoney.com/data/rankhandler.aspx?op=ph&sc=6yzf&st=desc&pi=1&pn=50
-用script标签调用，返回 var rankData = {datas:["代码,名称,..."], allRecords:1234}
-```
 
 ### 🔄 自动转换流程
 
@@ -117,120 +140,70 @@ git clone https://github.com/L-newbie/fund-skill.git "$env:USERPROFILE\.claude\s
 ```
 💬 提供接口信息（对话 / 原始文件，格式随意）
        ↓
-🤖 Claude Code 自动转换
-  1. 判断归属板块（fund/stock/global-index/news/market-resolve/或新建）
-  2. 转换为标准格式写入 api/*.md
-  3. 运行同步脚本 → 依次更新所有下游文件：
-     ✦ validator/index.html  （前端验证页面 + 后端预验证）
-     ✦ references/api-urls.md（API URL 清单）
-     ✦ SKILL.md              （Skill Quick Reference）
-     ✦ README.md             （板块说明 + 项目结构）
-  4. 后端预验证 fetch 类接口（失败不阻断，仅提示）
+🤖 Claude Code 自动处理
+  1. 📖 整理 — 解析 + 归类（只读，不写文件）
+  2. 🔍 验证 — HTTP 请求 → ✅/❌
+  3. ✋ 确认 — 展示结果，用户决定是否继续
+  4. ✍️ 写入 — 仅 ✅ API → api/*.md → Project Maintenance → 更新下游文件
+  5. 📋 报告 — 分析报告 + 修改记录 + 结论
        ↓
-✅ 转换完成，可删除原始文件
-       ↓
-🌐 启动验证页面进行完整验证和截图
+✅ 完成（原始文件自动清理）
 ```
 
-### ✅ 本地验证
+> 💡 默认只写入验证通过的接口。如需写入失败接口，请明确告知。
 
-自动转换流程或同步脚本运行后，接口会自动出现在验证页面中，可直接测试接口是否可用：
+### 📦 Pending 暂存机制
 
-```bash
-cd validator
-python3 -m http.server 8080
-# 浏览器打开 http://localhost:8080
-```
+验证失败的接口会按失败类型自动判断是否暂存到 `pending/` 目录：
 
-验证页面会自动加载所有接口，点击「▶ 全部验证」即可批量测试，也可单独点击某个接口的「验证」按钮。状态说明：
+| 失败类型 | 行为 | 说明 |
+|:--------:|:----:|:-----|
+| `network` | ✅ 暂存 | Connection reset / ECONNREFUSED / ENETUNREACH |
+| `timeout` | ✅ 暂存 | ETIMEDOUT / Timeout |
+| `unknown` | ✅ 暂存 | 其他不明显原因 |
+| `confirmed-dead` | ❌ 不暂存 | HTTP 404/410、DNS 解析失败 |
+
+暂存文件记录了时间、提交者、失败原因、重试次数等信息。下次执行 Project Maintenance 时会自动重试 pending 接口：
+
+- **验证通过** → 自动合并到 `api/*.md` + 删除 pending 文件
+- **验证仍失败** → 更新 Retry Count +1 和 Date
+- **Retry Count ≥ 5** → 自动标记为 `confirmed-dead`
+
+### 📌 提供接口信息
+
+对话中描述或提供原始文件均可，格式随意：
+
+- **对话中描述** — 直接告诉 Claude Code，例如：
+
+  > "我找到一个基金排名接口：请求 https://fund.eastmoney.com/data/rankhandler.aspx?op=ph&dt=kf&ft=all&sc=6yzf&st=desc&pi=1&pn=50，用 script 标签加载，返回 var rankData={datas:[...]}，每条数据逗号分隔，包含代码、名称、日期、净值、日增长率等"
+
+- **提供原始文件** — 把接口信息放到项目根目录（如 `my-apis.md`），例如：
+
+  ```
+  基金排行
+  请求地址: https://fund.eastmoney.com/data/rankhandler.aspx?op=ph&sc=6yzf&st=desc&pi=1&pn=50
+  用script标签调用，返回 var rankData = {datas:["代码,名称,..."], allRecords:1234}
+  ```
+
+### ✅ 接口验证
+
+接口验证由 Claude Code 通过 Project Maintenance 规则自动执行（使用 curl / pip / python3），无需手动运行脚本：
 
 | 状态 | 含义 |
 |:----:|:-----|
 | ✅ 可用 | 接口返回数据且验证通过 |
+| ⚠️ 未安装 | SDK 未安装，提示安装或自动安装 |
 | ❌ 失败 | 接口无响应或返回数据不符合预期 |
-| ⏳ 待检测 | 尚未运行验证 |
 
-> 💡 如果是手动编辑了 `api/*.md`，需先运行同步脚本再验证：
->
-> | 语言 | 命令 | 说明 |
-> |:----:|:----:|:----:|
-> | Node.js | `node scripts/sync.js` | 推荐 |
-> | Python | `python3 scripts/sync.py` | — |
-> | Bash | `bash scripts/sync.sh` | 零依赖 |
-
-### 📸 截图
-
-验证通过后，需要截图作为 PR 证明：
-
-1. 按上述步骤启动验证页面
-2. 点击「▶ 全部验证」等待全部接口完成
-3. 确认新增/修改的接口显示为 ✅ 可用
-4. 截取浏览器完整页面截图（需包含顶部状态栏的可用/总数）
+> 💡 如果手动编辑了 `api/*.md`，告诉 Claude Code "运行维护" 即可更新所有下游文件并验证接口。
 
 ### 🚀 提交 PR
 
 | 项目 | 规范 |
 |:----:|:----:|
 | 标题 | `[板块名] 简短描述`，如 `[fund] 添加基金排行接口` |
-| 截图 | validator 页面验证截图（必须，见上方截图步骤） |
+| 截图 | 终端验证输出截图（可选） |
 | 格式 | 接口文档需含 **URL · Transport · Response** 要素 |
-
----
-
-## 📁 项目结构
-
-<!-- AUTO-PROJECT-TREE START -->
-```
-fund-skill/
-├── 📄 SKILL.md                ← Skill 主入口
-├── 📂 api/                    ← 接口定义（按板块分文件）
-│   ├── 📊 fund.md
-│   ├── 🌍 global-index.md
-│   ├── 🔍 market-resolve.md
-│   ├── 📰 news.md
-│   ├── 📈 stock.md
-├── 📂 references/             ← 深度参考文档
-│   ├── 🔗 api-urls.md         完整 API URL 清单
-│   ├── 🔄 data-sources.md     数据源策略与兜底方案
-│   └── ⚠️ errors.md           常见错误与修复
-├── 📂 scripts/                ← 同步脚本
-│   ├── 📜 sync.js             Node.js 版（推荐）
-│   ├── 🐍 sync.py             Python 版
-│   └── 🐚 sync.sh             Bash 版（零依赖）
-├── 📂 validator/              ← 前端验证页面
-│   └── 🖥️ index.html          单文件 SPA
-├── 📂 .git/                   ← Git 仓库数据
-├── 📄 .gitignore              ← Git 忽略规则
-└── 📄 README.md
-```
-<!-- AUTO-PROJECT-TREE END -->
-
----
-
-## 🙏 数据源
-
-### 🇨🇳 国内
-
-| 数据源 | 提供能力 |
-|:------:|:--------|
-| [东方财富](https://www.eastmoney.com/) | 基金详情 · 行情 · 快讯 |
-| [天天基金网](https://fund.eastmoney.com/) | 基金实时估值 |
-| [腾讯财经](https://gu.qq.com/) | 股票行情 · Smartbox 搜索 |
-| [新浪财经](https://finance.sina.com.cn/) | 财经快讯 · 盘中估值走势 |
-
-### 🌏 海外
-
-| 数据源 | 提供能力 |
-|:------:|:--------|
-| [Yahoo Finance](https://finance.yahoo.com/) | 海外财经资讯 |
-| [CNBC](https://www.cnbc.com/) | 海外财经资讯 |
-| [MarketWatch](https://www.marketwatch.com/) | 海外财经资讯 |
-
-### 🔧 工具服务
-
-| 数据源 | 提供能力 |
-|:------:|:--------|
-| [rss2json](https://rss2json.com/) | 海外 RSS 代理 |
 
 ---
 
@@ -240,7 +213,7 @@ fund-skill/
 
 - 📡 **接口跟进**：数据源变动时及时适配，失效接口快速修复或替换
 - 🧩 **板块扩展**：持续收录新的数据源与接口，覆盖更多金融场景
-- 🛠️ **体验优化**：验证工具、同步脚本、文档结构不断打磨
+- 🛠️ **体验优化**：验证工具、文档结构不断打磨
 - 🙋 **社区驱动**：每一个 PR 都会让项目变得更好，你的贡献就是我们前进的动力
 
 > 💡 有想要的新接口？发现某个接口挂了？欢迎提 [Issue](https://github.com/L-newbie/fund-skill/issues) 或直接 PR，我会第一时间响应 ✨

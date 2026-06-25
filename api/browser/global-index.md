@@ -20,10 +20,13 @@ All global indices use the EastMoney push2 batch quote API via `secid`. No separ
 | 0.399673 | 399673 | 创业板50 | sz |
 
 ```
-GET https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids={secids:1.000001}&fields=f2,f3,f4,f12,f14&cb={callback}
+GET https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids={secids}&fields=f2,f3,f4,f12,f14&cb={callback}
 ```
 
 - **Transport**: JSONP
+- **Parameters**:
+  - `secids` — 逗号分隔的 `{market}.{code}` 对（默认: `1.000001`）
+  - `callback` — JSONP 回调函数名
 - **Matching**: push2 returns `f12` — match by secid first, fallback to code
 - **Fallback**: Missing quotes → fill with zero values + preset name
 

@@ -70,6 +70,20 @@ Quarter Report (top 10 only)
             - Skipped if stock coverage < 5 or data weight < 20%
 ```
 
+## Python SDK Data Sources
+
+```
+akshare (primary, only channel)
+    │
+    ├── Fund: fund_etf_spot_em, fund_open_fund_info_em, fund_individual_basic_info_xq,
+    │         fund_open_fund_rank_em, fund_portfolio_hold_em, fund_manager_em
+    │
+    └── Stock: stock_zh_a_spot_em, stock_zh_a_hist, stock_individual_info_em,
+              index_zh_a_hist
+    │
+    └─ Free, no auth, pip install akshare
+```
+
 ## Caching Strategy 缓存
 
 | Data Type | Cache Duration | Storage |

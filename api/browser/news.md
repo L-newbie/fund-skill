@@ -5,10 +5,14 @@ Multi-source aggregation: Sina + EastMoney + overseas RSS. Any source failure do
 ## 1. Sina Finance 新浪财经
 
 ```
-GET https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={lid:2509}&k=&num=50&page={page:1}&callback={cb}
+GET https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={lid}&k=&num=50&page={page}&callback={callback}
 ```
 
 - **Transport**: JSONP with custom callback name
+- **Parameters**:
+  - `lid` — 分类 ID（默认: `2509`）
+  - `page` — 页码（默认: `1`）
+  - `callback` — JSONP 回调函数名
 - **lid categories**:
   | lid | Category |
   |-----|----------|
@@ -25,10 +29,14 @@ GET https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid={lid:2509}&k=&num=5
 ## 2. EastMoney 24h News 东方财富快讯
 
 ```
-GET https://push2.eastmoney.com/api/qt/clist/get?cb={cb}&fid=ctime&po=1&pz=50&pn={page:1}&np=1&fltt=2&invt=2&fs={fs:m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23}&fields=f12,f14,f16,f17,f20
+GET https://push2.eastmoney.com/api/qt/clist/get?cb={callback}&fid=ctime&po=1&pz=50&pn={page}&np=1&fltt=2&invt=2&fs={fs}&fields=f12,f14,f16,f17,f20
 ```
 
 - **Transport**: JSONP
+- **Parameters**:
+  - `callback` — JSONP 回调函数名
+  - `page` — 页码（默认: `1`）
+  - `fs` — 筛选条件（默认: `m:0+t:6,m:0+t:80,m:1+t:2,m:1+t:23`）
 - **fs filter codes** (comma-join):
   | fs | Category |
   |----|----------|
@@ -53,11 +61,13 @@ GET https://push2.eastmoney.com/api/qt/clist/get?cb={cb}&fid=ctime&po=1&pz=50&pn
 Proxy via rss2json.com:
 
 ```
-GET https://api.rss2json.com/v1/api.json?rss_url={encodedFeedUrl:https%3A%2F%2Ffinance.yahoo.com%2Fnews%2Frssindex}
+GET https://api.rss2json.com/v1/api.json?rss_url={encodedFeedUrl}
 ```
 
 - **Transport**: `fetch` with 5s timeout
-- **Feed**: https://finance.yahoo.com/news/rssindex
+- **Parameters**:
+  - `encodedFeedUrl` — URL 编码的 RSS 地址（默认: `https%3A%2F%2Ffinance.yahoo.com%2Fnews%2Frssindex`）
+- **Default Feed**: https://finance.yahoo.com/news/rssindex
 - **Response**: `{ status: "ok", items: [{ title, pubDate, link, author }] }`
 - **Filter**: Today only; fail silently
 

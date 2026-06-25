@@ -3,10 +3,13 @@
 ## 1. Batch Stock Quotes 批量行情
 
 ```
-GET https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids={secids:1.000001}&fields=f2,f3,f4,f12,f14&cb={callback}
+GET https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids={secids}&fields=f2,f3,f4,f12,f14&cb={callback}
 ```
 
 - **Transport**: JSONP with custom callback name
+- **Parameters**:
+  - `secids` — 逗号分隔的 `{market}.{code}` 对，如 `1.600519,0.000001,116.00700`（默认: `1.000001`）
+  - `callback` — JSONP 回调函数名
 - **secids format**: comma-separated `{market}.{code}` pairs, e.g. `1.600519,0.000001,116.00700`
 - **Market code mapping**:
   | Market | Code |
@@ -67,10 +70,13 @@ GET https://searchapi.eastmoney.com/api/suggest/get?input={keyword}&type=14&toke
 ## 3. Yesterday's Change (A-share) 昨日涨跌
 
 ```
-GET https://push2his.eastmoney.com/api/qt/stock/kline/get?secid={secid:1.600519}&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57&klt=101&fqt=0&end=20500101&lmt=6&cb={callback}
+GET https://push2his.eastmoney.com/api/qt/stock/kline/get?secid={secid}&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57&klt=101&fqt=0&end=20500101&lmt=6&cb={callback}
 ```
 
 - **Transport**: JSONP
+- **Parameters**:
+  - `secid` — `{market}.{code}` 格式（默认: `1.600519`）
+  - `callback` — JSONP 回调函数名
 - **Domain**: `push2his` for A-share/JP/KR/TW
 - **Response**: `{ data: { klines: ["date,open,close,high,low,volume,amount", ...] } }`
 - **Calculate**: Find latest non-today row → `changeRate = (close_today - close_prev) / close_prev × 100`
@@ -79,10 +85,12 @@ GET https://push2his.eastmoney.com/api/qt/stock/kline/get?secid={secid:1.600519}
 ## 4. Tencent Quotes 腾讯行情
 
 ```
-GET https://qt.gtimg.cn/q={codes:sh600519}
+GET https://qt.gtimg.cn/q={codes}
 ```
 
 - **Transport**: `fetch` — response is GBK-encoded text
+- **Parameters**:
+  - `codes` — `{prefix}{code}` 格式，多个用逗号分隔（默认: `sh600519`）
 - **Decode**: `new TextDecoder('gbk').decode(arrayBuffer)`
 - **codes format**: `{prefix}{code}`, prefix mapping:
 

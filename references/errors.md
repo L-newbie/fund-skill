@@ -106,3 +106,54 @@ script.onload = () => {
 - Stock quotes: ≤50 per batch, 100ms inter-batch delay
 - News: ≤1 page per source per refresh
 - Smartbox: ≤80ms between sequential resolves
+- Python SDK (akshare): ≥500ms between requests to avoid IP ban
+
+## 8. Pending API Retry Mechanism 暂存接口重试机制
+
+**Problem**: API validation may fail due to transient network issues (firewall blocks, DNS issues, temporary outages) rather than the API genuinely being dead. Without a retry mechanism, these APIs are silently lost.
+
+**Solution**: Non-deterministic failures are automatically saved to the `pending/` directory with full metadata.
+
+### Failure Classification 失败分类
+
+| Type | Pattern | Action |
+|:----:|:--------|:------:|
+| `network` | `Connection reset`, `ECONNREFUSED`, `ENETUNREACH`, `Errno 104` | Save to pending/ |
+| `timeout` | `ETIMEDOUT`, `Timeout` | Save to pending/ |
+| `unknown` | Other unexplained failures | Save to pending/ |
+| `confirmed-dead` | HTTP 404/410, DNS `NXDOMAIN`, clear error codes | Do NOT save |
+
+### Pending File Format 暂存文件格式
+
+Files are stored as `pending/{board-key}-{YYYYMMDD-HHmmss}.md` and contain:
+
+```markdown
+# Pending APIs — 验证待确认接口
+
+- **Board**: 基金 (`fund`)
+- **Date**: 2026-06-25 14:30:00
+- **Submitter**: username (from git config)
+
+---
+
+## 1. 实时估值 (Real-time Valuation)
+
+```
+GET https://fundgz.1234567.com.cn/js/{code}.js?rt={timestamp}
+```
+
+- **Transport**: jsonp
+- **Parameters**: ...
+- **Failure Reason**: Connection reset by peer (Errno 104)
+- **Failure Type**: network
+- **Retry Count**: 1
+- **Source**: api/fund.md#1
+```
+
+### Retry Rules 重试规则
+
+- Sync scripts automatically retry all pending APIs on each run
+- Passing APIs → auto-merge to `api/*.md` + delete pending file
+- Still failing → increment `Retry Count` +1, update `Date`
+- `Retry Count ≥ 5` → reclassify as `confirmed-dead`
+- Developers can also manually inspect/retry pending files
