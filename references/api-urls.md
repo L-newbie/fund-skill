@@ -90,6 +90,7 @@
 
 ### 24. 历史K线 历史K线 → [python/stock.md#2](../api/python/stock.md)
 →akshare · `ak.stock_zh_a_hist(symbol="{code}", period="daily", start_date="{sdate}", end_date="{edate}", adjust="qfq")` · historical · 无需认证
+→finance-datareader · `fdr.DataReader("{code}", "{sdate}", "{edate}")` · historical · 无需认证
 
 ### 25. 股票基本信息 股票基本信息 → [python/stock.md#3](../api/python/stock.md)
 →akshare · `ak.stock_individual_info_em(symbol="{code}")` · static · 无需认证
@@ -99,4 +100,16 @@
 
 ### 27. 指数行情 指数行情 → [python/stock.md#5](../api/python/stock.md)
 →akshare · `ak.index_zh_a_hist(symbol="{code}", period="daily", start_date="{sdate}", end_date="{edate}")` · historical · 无需认证
+→finance-datareader · `fdr.DataReader("{index}", "{sdate}", "{edate}")` · historical · 无需认证
+
+---
+
+### 28. ETF列表 ETF列表 → [python/fund.md#7](../api/python/fund.md)
+→finance-datareader · `fdr.StockListing("ETF/KR")` · static · 无需认证
+
+### 29. 多市场股票列表 多市场股票列表 → [python/stock.md#7](../api/python/stock.md)
+→finance-datareader · `fdr.StockListing("{market}")` · static · 无需认证
+
+### 30. 快照数据 快照数据 → [python/stock.md#8](../api/python/stock.md)
+→finance-datareader · `fdr.SnapDataReader("{ticker}")` · snapshot · 无需认证
 <!-- AUTO-API-INDEX END -->
