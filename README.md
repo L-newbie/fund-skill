@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📈 Funds-Skills
+# 📈 Fund-Skill
 
 **基金 · 股票 · 资讯 — 一站式数据接口 Skill**
 
