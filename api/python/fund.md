@@ -85,3 +85,16 @@ Profiles: [→ profiles.md](profiles.md)
 - **Requires**: `pip install akshare`
 - **Response**: `DataFrame[姓名, 从业时间, 现任基金, 任职期间最佳回报, 任职期间最差回报, ...]`
 - **Notes**: 返回全市场基金经理数据，按 code 筛选目标基金经理
+
+---
+
+## 7. ETF Listing ETF列表
+
+| Channel | Transport | Call | Freshness |
+|---------|-----------|------|-----------|
+| finance-datareader | →finance-datareader | `fdr.StockListing("ETF/KR")` | static |
+
+- **Fallback**: finance-datareader (only channel)
+- **Requires**: `pip install finance-datareader`
+- **Response**: `DataFrame[Symbol, Name, ...]`
+- **Notes**: 返回韩国市场 ETF 列表；底层数据源为 Naver
