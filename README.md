@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📈 Fund-Skill
+# 📈 Funds-Skills
 
 **基金 · 股票 · 资讯 — 一站式数据接口 Skill**
 
@@ -58,8 +58,8 @@ fund-skill/
 | 🌐 市场解析 | `api/browser/market-resolve.md` | **1** | 腾讯智能搜索 |
 | 🌐 财经资讯 | `api/browser/news.md` | **3** | 新浪财经 · 东方财富快讯 · Overseas RSS — Yahoo Finance |
 | 🌐 股票 | `api/browser/stock.md` | **4** | 批量行情 · 股票搜索 · 昨日涨跌 · 腾讯行情 |
-| 🐍 基金 | `api/python/fund.md` | **6** | 实时ETF估值 · 历史净值 · 基金基本信息 · 基金排行 · 基金持仓 · 基金经理 |
-| 🐍 股票 | `api/python/stock.md` | **5** | A股实时行情 · 历史K线 · 股票基本信息 · 股票搜索 · 指数行情 |
+| 🐍 基金 | `api/python/fund.md` | **7** | 实时ETF估值 · 历史净值 · 基金基本信息 · 基金排行 · 基金持仓 · 基金经理 · ETF列表 |
+| 🐍 股票 | `api/python/stock.md` | **8** | A股实时行情 · 历史K线 · 股票基本信息 · 股票搜索 · 指数行情 · 多市场股票列表 · 快照数据 |
 <!-- AUTO-BOARD-TABLE END -->
 
 ---
@@ -195,7 +195,7 @@ Fund Skill 已加载 ✅
 | ⚠️ 未安装 | SDK 未安装，提示安装或自动安装 |
 | ❌ 失败 | 接口无响应或返回数据不符合预期 |
 
-> 💡 如果手动编辑了 `api/*/*.md`，告诉 Claude Code "运行维护" 即可更新所有下游文件并验证接口。
+> 💡 如果手动编辑了 `api/*.md`，告诉 Claude Code "运行维护" 即可更新所有下游文件并验证接口。
 
 ### 🚀 提交 PR
 
