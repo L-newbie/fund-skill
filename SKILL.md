@@ -2,7 +2,7 @@
 name: Fund Skill
 slug: fund-skill
 version: 3.0.0
-description: Query fund valuations, stock quotes, financial news, and global market indices from EastMoney, Sina, Tencent and overseas RSS sources.
+description: Query fund valuations, stock quotes, financial news, and global market indices from EastMoney, Sina, Tencent, overseas RSS sources, and Python SDKs (akshare, finance-datareader).
 changelog: Replace sync scripts with AI-driven maintenance rules; api-urls.md becomes pointer index
 metadata: {"emoji":"📈","requires":{"bins":[]},"os":["linux","darwin","win32"]}
 ---
@@ -307,8 +307,8 @@ Output:
 | 🌐 市场解析 | `api/browser/market-resolve.md` | 腾讯智能搜索 |
 | 🌐 财经资讯 | `api/browser/news.md` | 新浪财经, 东方财富快讯, Overseas RSS — Yahoo Finance |
 | 🌐 股票 | `api/browser/stock.md` | 批量行情, 股票搜索, 昨日涨跌, 腾讯行情 |
-| 🐍 基金 | `api/python/fund.md` | 实时ETF估值, 历史净值, 基金基本信息, 基金排行, 基金持仓, 基金经理 |
-| 🐍 股票 | `api/python/stock.md` | A股实时行情, 历史K线, 股票基本信息, 股票搜索, 指数行情 |
+| 🐍 基金 | `api/python/fund.md` | 实时ETF估值, 历史净值, 基金基本信息, 基金排行, 基金持仓, 基金经理, ETF列表 |
+| 🐍 股票 | `api/python/stock.md` | A股实时行情, 历史K线, 股票基本信息, 股票搜索, 指数行情, 多市场股票列表, 快照数据 |
 
 | Reference | File |
 |-----------|------|
